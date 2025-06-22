@@ -8,13 +8,14 @@ CITY = "Paris"
 API_KEY = "API_KEY"
 UNITS = "metric"
 
+
 def get_weather() -> None:
     api_key = os.getenv(API_KEY)
 
     if not api_key:
         print(f"Error: {API_KEY} environment variable not set. Please set it.")
         sys.exit(1)
-    
+
     query_parameters = {
         "q": CITY,
         "key": api_key
@@ -30,7 +31,10 @@ def get_weather() -> None:
             localtime = weather_data["location"]["localtime"]
             temp_c = weather_data["current"]["temp_c"]
             condition = weather_data["current"]["condition"]["text"]
-            print(f"{city_name}/{country_name} {localtime} Weather: {temp_c}, {condition}")
+            print(
+                f"{city_name}/{country_name} "
+                f"{localtime} Weather: {temp_c}, {condition}"
+            )
         else:
             print(f"Could not retrieve weather data for {CITY}.")
             sys.exit(1)
@@ -38,6 +42,7 @@ def get_weather() -> None:
     except Exception as e:
         print(f"Unexpected error: {e}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     get_weather()
