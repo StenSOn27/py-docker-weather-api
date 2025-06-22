@@ -5,7 +5,7 @@ import sys
 
 URL = "https://api.weatherapi.com/v1/current.json"
 CITY = "Paris"
-API_KEY = "API_KEY"
+API_KEY = "WEATHER_API_KEY"
 UNITS = "metric"
 
 
